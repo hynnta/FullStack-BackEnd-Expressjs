@@ -2,10 +2,10 @@
   "name": "fullstack-hook",
   "version": "1.0.0",
   "description": "nodejs react",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/server.js"
   },
   "author": "hynnta",
   "license": "ISC",

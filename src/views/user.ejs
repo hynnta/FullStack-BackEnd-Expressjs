@@ -52,7 +52,11 @@
                 <td><%= item.username%></td>
                 <td>
                   <button class="btn btn-info">Edit</button>
-                  <button class="btn btn-danger">Delete</button>
+                  <form style="display: inline;" method="POST" action="/delete-user/<%= item.id%>">
+                  <button class="btn btn-danger" type="submit">
+                    Delete
+                  </button>
+                </form>
                 </td>
               </tr>
             <% }) %>

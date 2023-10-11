@@ -58,7 +58,7 @@ const updateUser = async (email, username, id) => {
     const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'nodejs_reactjs', Promise: bluebird});
 
     try {
-        const [rows, fields] = await connection.execute('UPDATE users SET email = ?, username = ? WHERE id = ?', [username, email, id]);
+        const [rows, fields] = await connection.execute('UPDATE users SET email = ?, username = ? WHERE id = ?', [email, username, id]);
         return rows;
     } catch (error) { 
         console.log('check err: ', error)

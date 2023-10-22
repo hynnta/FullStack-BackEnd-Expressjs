@@ -27,10 +27,27 @@ const createUser = async (email, password, username) => {
 }
 
 const userList = async () => {
+    try {
+        let newUser = await db.User.findOne({
+            where: {id: 1},
+            include: {model: db.Group},
+            raw: true,
+            nest: true,
+        })
+        console.log('check newUser: ', newUser);
+    } catch (error) {
+        console.log('check error: ', error)
+    }
+    
+    try {
+        let users = [];
 
-    let user = [];
+        return users = await db.User.findAll();
+    } catch (error) {
+        console.log('check error: ', error)
+    }
 
-    return user = await db.User.findAll();
+    
 
     // const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'nodejs_reactjs', Promise: bluebird});
 

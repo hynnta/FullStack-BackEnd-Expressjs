@@ -29,8 +29,9 @@ const createUser = async (email, password, username) => {
 const userList = async () => {
     try {
         let newUser = await db.User.findOne({
-            where: {id: 1},
-            include: {model: db.Group},
+            where: { id: 1 },
+            attributes: ["id", "username", "email"],
+            include: {model: db.Group, attributes: [ "name", "description"]},
             raw: true,
             nest: true,
         })

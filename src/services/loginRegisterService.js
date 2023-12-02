@@ -72,7 +72,7 @@ const registerNewUser = async (rawUserData) => {
     }
 }
 
-const checkPassword = async (inputPassword, hashPassword) => { 
+const checkPassword = (inputPassword, hashPassword) => { 
     return bcrypt.compareSync(inputPassword, hashPassword);
 }
 
@@ -89,23 +89,23 @@ const handleUserLogin = async (rawData) => {
         })
 
         if (user) {
+            console.log('found user with email/phone ')
             let isCorrectPassword = checkPassword(rawData.password, user.password);
-            if (isCorrectPassword === true) { 
+            if (isCorrectPassword === true) {
                 return {
-                    EM: 'ok', 
+                    EM: 'ok',
                     EC: 0,
-                    DT: '' 
+                    DT: ''
                 }
             }
-        } 
-            return {
-                EM: 'Your email, phone number or password is incorrect!', 
-                EC: 1,
-                DT: ''
-            }
-        
-        
-        
+        }
+        console.log('not found user with email/phone: ', rawData.valueLogin, 'password: ', rawData.password)
+        return {
+            EM: 'Your email, phone number or password is incorrect!', 
+            EC: 1,
+            DT: ''
+        }
+         
     } catch (error) {
         console.log(error)
         return {

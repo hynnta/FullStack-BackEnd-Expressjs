@@ -14,7 +14,7 @@ const handleRegister = async (req, res) => {
             return res.status(200).json({
                 EM: 'Missing required parameters', //error message
                 EC: '1', //error code
-                DT: '', //date
+                DT: '', //data
             })
         }
 
@@ -22,7 +22,7 @@ const handleRegister = async (req, res) => {
             return res.status(200).json({
                 EM: 'password must have more than 3 letters', //error message
                 EC: '1', //error code
-                DT: '', //date
+                DT: '', //data
             })
         }
 
